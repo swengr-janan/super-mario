@@ -1,4 +1,3 @@
-STORE LOCATOR
+SIMPLE SUPER MARIO THEMED NUMBER GUESSING GAME
 
-This is a sample project that I learned for Nazariy Dumanskyy during his LIVE JavaScript Training
-
+This is what I learned from Module 2 of Profit With JavaScript
