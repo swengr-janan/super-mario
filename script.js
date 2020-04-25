@@ -15,12 +15,18 @@
 
 // Variable for store the correct random number 
 let correctNumber = getRandomNumber();
-
 let guesses = [];
+let coins = 0;
+
+//Game sound
+var mySound;
 
 window.onload = function() {
     document.getElementById("number-submit").addEventListener("click", playGame);
     document.getElementById("restart-game").addEventListener("click", initGame);
+    document.getElementById("play-again").addEventListener("click", initGame);
+    document.getElementById("play-again").style.display = 'none';
+
 
 }
 
@@ -48,7 +54,7 @@ function displayResult(numberGuess){
       showNumberAbove(numberGuess);
     }else if(numberGuess < correctNumber){
       showNumberBelow(numberGuess);
-    }else{
+    }else if(numberGuess == correctNumber){
       showYouWon(numberGuess);
     }
   
@@ -66,6 +72,12 @@ function initGame(){
   displayHistory(guesses);
   document.body.style.backgroundColor = "rgb(214, 214, 214)";
   document.getElementById("banner-image").src="image/box.png";
+
+  document.getElementById("play-again").style.display = 'none';
+  document.getElementById("number-submit").style.display = 'inline';
+  document.getElementById("restart-game").style.display = 'inline';
+
+
 }
 
 /**
@@ -138,41 +150,50 @@ function getDialog(dialogType, text, numberGuess){
 
 function showYouWon(numberGuess){
   const text = " is correct! Awesome!"
-  /**
-   * Retrieve the dialog using the getDialog() function
-   * and save it to variable called dialog
-   * HINT: Use the 'won' and text parameters 
-   */
-  // *CODE GOES BELOW HERE *
+
+  //Play sound when you won
+  var sound = new Audio('sounds/won.mp3');
+  sound.play();
+
   let dialog = getDialog('won', text, numberGuess);
   document.getElementById("result").innerHTML = dialog;
   document.body.style.backgroundColor = "#90ee90";
   document.getElementById("banner-image").src="image/correct.png";
 
+  document.getElementById("number-submit").style.display = 'none';
+  document.getElementById("restart-game").style.display = 'none';
+  document.getElementById("play-again").style.display = 'inline';
+
+  coins += 1;
+  document.getElementById('score').textContent = coins;
+
 }
 
 function showNumberAbove(numberGuess){
+
   const text = " is too high!"
-  /**
-   * Retrieve the dialog using the getDialog() function
-   * and save it to variable called dialog
-   * HINT: Use the 'warning' and text parameters 
-   */
-  // *CODE GOES BELOW HERE *
+
+  //Play sound when you won
+  var sound = new Audio('sounds/wrong.mp3');
+  sound.play();
+  
   let dialog = getDialog('warning', text, numberGuess);
   document.getElementById("result").innerHTML = dialog;
   document.body.style.backgroundColor = "#FFB6C1";
+  
+  
 }
 
 function showNumberBelow(numberGuess){
   const text = " is too low!"
-  /**
-   * Retrieve the dialog using the getDialog() function
-   * and save it to variable called dialog
-   * HINT: Use the 'warning' and text parameters 
-   */
-  // *CODE GOES BELOW HERE *
+
+  //Play sound when you won
+  var sound = new Audio('sounds/wrong.mp3');
+  sound.play();
+  
   let dialog = getDialog('warning', text, numberGuess);
   document.getElementById("result").innerHTML = dialog;
   document.body.style.backgroundColor = "#FFB6C1";
+
+  
 }

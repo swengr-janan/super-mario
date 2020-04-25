@@ -14,13 +14,19 @@
         <main>
             <h1 class="banner p-3"><img id="banner-image" src="image/box.png" style="width: 300px; height: 300px;"></h1>
             <div class="form-group ">
-                <input id="number-guess" class="form-control form-control-lg" type="number" placeholder="What's your guess?">
+                <p><img src="image/coin.png" style="width: 25px; height: 25px;"> x <strong id="score">0</strong></p>
+                <input id="number-guess" class="form-control form-control-lg" type="number" placeholder="What's your guess?" required>
             </div>
             <div id="result">
                 <!-- This is where the result will be-->
             </div>
-            <button type="button" id="number-submit" class="btn btn-lg btn-success">Check Me</button>
-            <button type="button" id="restart-game" class="btn btn-lg btn-warning">Restart</button>
+            <div>
+            <input type="image" src="image/playAgain.png" id="play-again" style="width: 200px; height: 100px;"/>
+            </div>
+            <div>
+            <input type="image" src="image/check.png" id="number-submit" style="width: 200px; height: 100px;"/>
+            <input type="image" src="image/restart.png" id="restart-game" style="width: 200px; height: 100px;"/>
+            </div>
             <div id="history">
                 <!-- This is where the guess history will be-->
             </div>
