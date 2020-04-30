@@ -76,6 +76,7 @@ function initGame(){
   document.getElementById("play-again").style.display = 'none';
   document.getElementById("number-submit").style.display = 'inline';
   document.getElementById("restart-game").style.display = 'inline';
+  document.getElementById("number-guess").value = "";
 
 
 }
